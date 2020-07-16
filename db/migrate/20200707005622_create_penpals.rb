@@ -1,10 +1,13 @@
 class CreatePenpals < ActiveRecord::Migration[6.0]
   def change
     create_table :penpals do |t|
-        t.string :first_name
-        t.string :last_name
-        t.string :email_address
-        t.integer :user_id
+        t.string :name
+        t.string :city
+        t.string :email
+        t.string :photo
+        t.references :user, null: false, foreign_key: true
+
+
       t.timestamps
     end
   end

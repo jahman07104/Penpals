@@ -1,6 +1,5 @@
 class Penpal < ApplicationRecord
-belongs_to :users
-validates :name, presence: tru
-e
+belongs_to :user
+ validates :name, presence: true
 
 end

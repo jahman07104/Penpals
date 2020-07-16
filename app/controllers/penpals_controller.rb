@@ -1,11 +1,16 @@
 class PenpalsController < ApplicationController
+  def index
+    penpals = Penpal.all 
+    render json: penpals 
+  end
+
   def create 
-    binding.pry
+  #  binding.pry
       penpal = Penpal.create(penpal_params)
-      if penpal.vaid?
+      if penpal.valid?
         render json: penpal
       else 
-        render json(error: "Penpal not valid")
+        render json: {error: "Penpal not valid"}
       end  
   end
 
@@ -13,15 +18,12 @@ class PenpalsController < ApplicationController
     penpal = Penpal.find(params[:id])  
   end
 
-  def index
-    penpal = Penpal.all 
-    render json:penpal 
-  end
+ 
 
   private
 
   def penpal_params
-    params.require(:penpal).permit(:first_name,:last_name,:email_address,:user_id)   
+    params.require(:penpal).permit(:name, :city, :email, :photo)   
   end
 
 end

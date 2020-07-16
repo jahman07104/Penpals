@@ -1,3 +1,4 @@
 class PenpalSerializer < ActiveModel::Serializer
-  attributes :id,:first_name,:first_name,:email_address
+  attributes :name, :city, :email, :image_url
+  belongs_to :user
 end
