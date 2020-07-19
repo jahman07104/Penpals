@@ -1,10 +1,19 @@
 class UsersController < ApplicationController
 
-  def create   
-    users = User.all
-    render json: users, 
-    include: [:penpals]
+  def index
+    users = User.all 
+    render json: users 
   end
+
+  def create 
+    #  binding.pry
+        user = User.create(user_params)
+        if user.valid?
+          render json: user
+        else 
+          render json: {error: "User not valid"}
+        end  
+    end
 
   def show
     user = User.find(params[:id])

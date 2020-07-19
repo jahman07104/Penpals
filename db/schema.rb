@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_184315) do
+ActiveRecord::Schema.define(version: 2020_07_17_203350) do
 
   create_table "penpals", force: :cascade do |t|
     t.string "name"
     t.string "city"
     t.string "email"
     t.string "photo"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_url"
