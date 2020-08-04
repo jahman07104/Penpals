@@ -7,11 +7,7 @@ class UsersController < ApplicationController
 
   def create 
     user = User.create(user_params)
-    if user.valid?
-      render json: user
-    else 
-      render json: {error: "User not valid"}
-    end  
+    redirect_back fallback_location: ''
   end
 
   def show
@@ -21,4 +17,10 @@ class UsersController < ApplicationController
       #status: 200
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name)
+    
+  end
 end

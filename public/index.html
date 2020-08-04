@@ -12,32 +12,49 @@
 <body>
   <div class="container">
     <div class="row">
+      <div class="sidebar">
+        <h3>Hello User</h3>
+        <hr>
+        <h6>Click User to Select </h6>
+        <hr>
+      </div>
       <div class="col s20">
         <div id="main" class="card">
           <br>
           <div class="card-content">
             <br>
-            <span class="card-title"><h1>PenPals</h1></span>
+            <span class="card-title" margin: 60px><h1>PenPals</h1></span>
             <div class="row">
               <div class="input-field col s20 "id="penpal-list"></div> 
               <form id="penpal-form" method="post" action="http://localhost:3000/penpals" enctype="multipart/form-data">
-                <label for="penpal">CLick the pic to add a PenPal to the list</label>
-                <input name="penpal[name]" placeholder="Name">
-                <input name="penpal[city]" placeholder="City">
-                <input name="penpal[email]" placeholder="Email">
-                <input name="penpal[image]" type="file" accept="image/*" placeholder="Image">
+                <label for="penpal" style="color:red">Click the pic to add a PenPal to the list</label>
+                <input name="penpal[name]" placeholder="Name" required>
+                <input name="penpal[city]" placeholder="City" required>
+                <input name="penpal[email]" placeholder="Email" required>
+                <input name="penpal[image]" type="file" accept="image/*" placeholder="Image" required>
                 <button>Add A New Penpal</button>
               </form>
+
+              <br>
+              
+              <form id="user-form" method="post" action="http://localhost:3000/users" enctype="multipart/form-data">
+                <label for="user" style="color:rgb(220, 20, 20)"> add a User </label>
+                <input name="user[name]" placeholder="Name" required>
+                <input name="user[email]" placeholder="Email" required>
+                <!-- <input name="user[image]" type="file" accept="image/*" placeholder="Image" required> -->
+                <button>Add A New User</button>
+              </form> 
+            
             </div> 
           </div>           
           <div class="card-action" >
-            <span class="card-title"><h2>Penpals List</h2></span>
+            <span class="card-title" style="color:rgb(27, 216, 121)"><h2>Penpals List</h2></span>
             <div class="input-field col s12">
               <input type="text" name="filter" id="filter">
               <label for="filter">Filter Penpals by Name</label>
             </div>
             <ul class="collection"></ul>
-            <a href="#" class="clear-tasks btn black">Clear Penpals </a>
+            <!-- <a href="#" class="clear-tasks btn black">Clear Penpals </a> -->
           </div>   
         </div>    
       </div>  
@@ -51,8 +68,12 @@ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="user.js"></script>
 <script src="penpal.js"></script>
 
+<script>
+  User.render().then(() => Penpal.fetch())
+</script>
 
 </body>
 </html>

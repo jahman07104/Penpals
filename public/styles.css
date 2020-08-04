@@ -1,6 +1,30 @@
 body{
+  text-align: center;
   background-color: rgb(228, 215, 37);
 }
+
+.container {
+  background-color: rgb(215, 228, 37);
+
+}
+
+
+.sidebar {
+  position: absolute; 
+  left: 190px;
+  top: 8px;
+  width: 130px;
+  height: 600px;
+  background: rgb(243, 243, 247);
+  color: rgb(0, 128, 6);
+  border: 1px dotted rgb(196, 187, 187)
+}
+
+.sidebar .active {
+  font-weight: bold;
+  
+}
+
 .links {
   margin-right: 20px;
   margin: auto;
@@ -10,6 +34,19 @@ body{
 color: green;
 
  } 
+
+
+ 
+ h3{
+  color: green;
+  
+   } 
+
+   h6{
+    color:tomato;
+    
+     } 
+
  span.name {
   padding: 10px;
   color: green;
